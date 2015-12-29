@@ -1,0 +1,6 @@
+echo "************ UNDEPLOYING *******************"
+asadmin undeploy jee-jax-jpa
+echo "************ BUILDING **********************"
+mvn package
+echo "************ DEPLOYING *********************"
+asadmin deploy target/jee-jax-jpa.war
