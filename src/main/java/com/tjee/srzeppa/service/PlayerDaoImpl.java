@@ -1,5 +1,6 @@
 package com.tjee.srzeppa.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -51,6 +52,15 @@ public class PlayerDaoImpl implements PlayerDao{
 		Team team = entityManager.find(Team.class, teamId);
 		player.setTeam(team);
 		
+	}
+
+	@Override
+	public Team getOwnedTeam(Player player) {
+		player = entityManager.find(Player.class, player.getId());
+		// lazy loading
+		Team ownedTeam;
+		ownedTeam = player.getTeam();
+		return ownedTeam;
 	}
 
 }
