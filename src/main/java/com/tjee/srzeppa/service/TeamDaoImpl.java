@@ -43,4 +43,22 @@ public class TeamDaoImpl implements TeamDao{
 		
 	}
 
+	@Override
+	public void addPlayerToTeamList(int teamId, List<Player> playerList) {
+		Team team = entityManager.find(Team.class, teamId);
+		for(Player p: playerList)
+			team.getPlayers().add(p);
+		
+	}
+
+	@Override
+	public void addPlayerToTeam(int teamId, List<Integer> listaId) {
+		Team team = entityManager.find(Team.class, teamId);
+		for(int id : listaId){
+			Player p = entityManager.find(Player.class, id);
+			team.getPlayers().add(p);
+		}
+		
+	}
+
 }

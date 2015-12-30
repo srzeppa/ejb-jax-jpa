@@ -11,5 +11,6 @@ public interface PlayerDao {
 	void deletePlayer(Player player);
 	Player getPlayerById(int id);
 	void updatePlayer(Player player);
+	public void addTeamToPlayer(int playerId, int teamId);
 
 }
