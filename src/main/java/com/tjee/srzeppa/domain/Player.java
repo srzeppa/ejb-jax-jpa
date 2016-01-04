@@ -10,7 +10,7 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({ 
-	@NamedQuery(name = "get.all.players", query = "Select p from players p")
+	@NamedQuery(name = "get.all.players", query = "Select p from Player p")
 })
 public class Player {
 	
