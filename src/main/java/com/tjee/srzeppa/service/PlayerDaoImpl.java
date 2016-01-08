@@ -17,7 +17,7 @@ public class PlayerDaoImpl implements PlayerDao{
 	private EntityManager entityManager;
 
 	@Override
-	public void addClient(Player player) {
+	public void addPlayer(Player player) {
 		entityManager.persist(player);
 		
 	}

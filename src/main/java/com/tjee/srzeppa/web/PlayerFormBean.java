@@ -45,6 +45,10 @@ public class PlayerFormBean implements Serializable{
 		return ownedTeam;
 	}
 	
+	public void addPlayer() {
+		playerDao.addPlayer(player);
+	}
+	
 	public void deletePlayer(){
 		player = players.getRowData();
 		playerDao.deletePlayer(player);

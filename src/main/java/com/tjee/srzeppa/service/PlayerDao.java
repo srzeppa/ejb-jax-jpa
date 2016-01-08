@@ -7,7 +7,7 @@ import com.tjee.srzeppa.domain.Team;
 
 public interface PlayerDao {
 	
-	void addClient(Player player);
+	void addPlayer(Player player);
 	List<Player> getAllPlayers();
 	void deletePlayer(Player player);
 	Player getPlayerById(int id);

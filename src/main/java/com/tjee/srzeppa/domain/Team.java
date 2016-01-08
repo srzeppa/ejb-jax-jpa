@@ -3,7 +3,10 @@ package com.tjee.srzeppa.domain;
 import java.util.List;
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +26,7 @@ public class Team {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String name = "unknown";
-	@OneToMany
+	@OneToMany(mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Player> players = new ArrayList<Player>();
 	
 	public Team() {
