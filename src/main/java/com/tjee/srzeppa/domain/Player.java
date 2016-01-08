@@ -17,14 +17,13 @@ import javax.persistence.NamedQuery;
 })
 public class Player {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String firstname = "unknown";
 	private String lastname = "unknown";
 	private int age;
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Team team;
+/*	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_team", nullable = true)
+	private Team team;*/
 	
 	public Player() {
 		
@@ -35,9 +34,11 @@ public class Player {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.age = age;
-		this.team = team;
+		/*this.team = team;*/
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getId() {
 		return id;
 	}
@@ -70,12 +71,12 @@ public class Player {
 		this.age = age;
 	}
 
-	public Team getTeam() {
+/*	public Team getTeam() {
 		return team;
 	}
 
 	public void setTeam(Team team) {
 		this.team = team;
-	}
+	}*/
 
 }

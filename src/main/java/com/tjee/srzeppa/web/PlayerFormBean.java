@@ -10,6 +10,7 @@ import javax.inject.Named;
 import com.tjee.srzeppa.domain.Player;
 import com.tjee.srzeppa.domain.Team;
 import com.tjee.srzeppa.service.PlayerDao;
+import com.tjee.srzeppa.service.PlayerDaoImpl;
 import com.tjee.srzeppa.service.TeamDao;
 
 @SessionScoped
@@ -40,13 +41,14 @@ public class PlayerFormBean implements Serializable{
 		return players;
 	}
 
-	public Team getOwnedTeam() {
-		ownedTeam = playerDao.getOwnedTeam(player);
-		return ownedTeam;
-	}
+//	public Team getOwnedTeam() {
+//		ownedTeam = playerDao.getOwnedTeam(player);
+//		return ownedTeam;
+//	}
 	
-	public void addPlayer() {
+	public String addPlayer() {
 		playerDao.addPlayer(player);
+		return "showPlayers";
 	}
 	
 	public void deletePlayer(){

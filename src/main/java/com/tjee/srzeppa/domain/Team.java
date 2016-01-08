@@ -22,11 +22,8 @@ import javax.persistence.TemporalType;
 })
 public class Team {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String name = "unknown";
-	@OneToMany(mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Player> players = new ArrayList<Player>();
 	
 	public Team() {
@@ -39,6 +36,8 @@ public class Team {
 		this.players = players;
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public int getId() {
 		return id;
 	}
@@ -54,7 +53,8 @@ public class Team {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	public List<Player> getPlayers() {
 		return players;
 	}
