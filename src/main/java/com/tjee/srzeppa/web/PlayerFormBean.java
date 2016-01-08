@@ -58,5 +58,10 @@ public class PlayerFormBean implements Serializable{
 		player = players.getRowData();
 		playerDao.updatePlayer(player);
 	}
+	
+	public String showProperties() {
+		player = players.getRowData();
+		return "properties";
+	}
 
 }
