@@ -40,11 +40,6 @@ public class PlayerFormBean implements Serializable{
 		players.setWrappedData(playerDao.getAllPlayers());
 		return players;
 	}
-
-//	public Team getOwnedTeam() {
-//		ownedTeam = playerDao.getOwnedTeam(player);
-//		return ownedTeam;
-//	}
 	
 	public String addPlayer() {
 		playerDao.addPlayer(player);

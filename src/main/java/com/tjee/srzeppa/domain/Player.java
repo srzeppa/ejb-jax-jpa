@@ -21,9 +21,7 @@ public class Player {
 	private String firstname = "unknown";
 	private String lastname = "unknown";
 	private int age;
-/*	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_team", nullable = true)
-	private Team team;*/
+	private boolean team;
 	
 	public Player() {
 		
@@ -34,7 +32,6 @@ public class Player {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.age = age;
-		/*this.team = team;*/
 	}
 
 	@Id
@@ -71,12 +68,11 @@ public class Player {
 		this.age = age;
 	}
 
-/*	public Team getTeam() {
+	public boolean isTeam() {
 		return team;
 	}
 
-	public void setTeam(Team team) {
+	public void setTeam(boolean team) {
 		this.team = team;
-	}*/
-
+	}
 }

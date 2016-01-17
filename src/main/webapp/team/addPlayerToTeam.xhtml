@@ -11,19 +11,23 @@
 		<h:form id="teamForm">
 			<h:panelGrid columns="2">
 
-				<h:outputText value="#{msg.teamNameLabel}" />
-				<h:inputText id="name" value="#{teamBean.team.name}"
-					required="#{true}" />
-				<h:outputText value="#{msg.teamPlayersLabel}" />
-				<h:inputText id="players" value="#{teamBean.team.players}"
-					required="#{true}" />
+				<h:outputText value=" Team" />
+				<h:selectOneMenu value="#{teamBean.team}">
+					<f:selectItems value="#{teamBean.allTeams}" var="team"
+						itemValue="#{team.id}" itemLabel="#{team.name}" />
+				</h:selectOneMenu>
+
+
+				<h:outputText value=" Player " />
+				<h:selectOneMenu value="#{teamBean.teamId}">
+					<f:selectItems value="#{teamBean.allPlayers}" var="player"
+						itemValue="#{player.id}" itemLabel="#{player.firstname}" />
+				</h:selectOneMenu>
 			</h:panelGrid>
 
-			<h:commandButton value="#{msg.teamFormOKButton}"
-				action="#{teamBean.addTeam}" />
+			<h:commandButton value="Add" action="#{teamBean.playerToTeam}" />
 
 			<h:panelGrid>
-				<h:messages for="" />
 				<h:messages id="messages" showDetail="#{true}"
 					showSummary="#{false}" />
 			</h:panelGrid>

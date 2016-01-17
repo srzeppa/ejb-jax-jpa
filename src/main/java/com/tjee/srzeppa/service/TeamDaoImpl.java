@@ -1,5 +1,6 @@
 package com.tjee.srzeppa.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -17,6 +18,7 @@ public class TeamDaoImpl implements TeamDao{
 
 	@Override
 	public void addTeam(Team team) {
+		team.setId(0);
 		entityManager.persist(team);
 		
 	}
@@ -52,13 +54,18 @@ public class TeamDaoImpl implements TeamDao{
 	}
 
 	@Override
-	public void addPlayerToTeam(int teamId, List<Integer> listaId) {
+	public void addPlayerToTeam(int teamId, int playerId) {
 		Team team = entityManager.find(Team.class, teamId);
-		for(int id : listaId){
-			Player p = entityManager.find(Player.class, id);
-			team.getPlayers().add(p);
-		}
-		
+		Player player = entityManager.find(Player.class, playerId);
+		player.setTeam(true);
+		team.getPlayers().add(player);
+	}
+	
+	@Override
+	public List<Player> getPlayers (Team team){
+		team = entityManager.find(Team.class, team.getId());
+		List<Player> players = new ArrayList<Player>(team.getPlayers());
+		return players;
 	}
 
 }

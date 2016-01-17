@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.tjee.srzeppa.domain.Player;
+import com.tjee.srzeppa.domain.Team;
 
 @Stateless
 public class PlayerDaoImpl implements PlayerDao{
@@ -40,22 +41,5 @@ public class PlayerDaoImpl implements PlayerDao{
 		// TODO Auto-generated method stub
 		
 	}
-
-//	@Override
-//	public void addTeamToPlayer(int playerId, int teamId) {
-//		Player player = entityManager.find(Player.class, playerId);
-//		Team team = entityManager.find(Team.class, teamId);
-//		player.setTeam(team);
-//		
-//	}
-//
-//	@Override
-//	public Team getOwnedTeam(Player player) {
-//		player = entityManager.find(Player.class, player.getId());
-//		// lazy loading
-//		Team ownedTeam;
-//		ownedTeam = player.getTeam();
-//		return ownedTeam;
-//	}
 
 }

@@ -13,6 +13,7 @@ public interface TeamDao {
 	Team getTeamById(int id);
 	void updateTeam(Team team);
 	void addPlayerToTeamList(int teamId, List<Player> playerList);
-	void addPlayerToTeam(int teamId, List<Integer> listaId);
+	List<Player> getPlayers(Team team);
+	void addPlayerToTeam(int teamId, int playerId);
 
 }

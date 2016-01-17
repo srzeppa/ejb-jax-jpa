@@ -1,5 +1,6 @@
 package com.tjee.srzeppa.web;
 
+import java.util.List;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
@@ -25,7 +26,10 @@ public class TeamFormBean implements Serializable {
 	private PlayerDao playerDao;
 	@Inject
 	private TeamDao teamDao;
-
+	
+	private int playerId;
+	private int teamId;
+	
 	public Team getTeam() {
 		return team;
 	}
@@ -47,6 +51,28 @@ public class TeamFormBean implements Serializable {
 	public void editTeam() {
 		team = teams.getRowData();
 		teamDao.updateTeam(team);
+	}
+	
+	public List <Player> getAllPlayers(){
+		return playerDao.getAllPlayers();
+	}
+
+	public int getTeamId() {
+		return teamId;
+	}
+
+	public void setTeamId(int teamId) {
+		this.teamId = teamId;
+	}
+	
+	public String playerToTeam(){
+		teamDao.addPlayerToTeam(teamId, playerId);
+		return null;
+	}
+	
+	public String addTeam(){
+		teamDao.addTeam(team);
+		return "showTeams";
 	}
 
 }
