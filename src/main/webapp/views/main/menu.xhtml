@@ -2,44 +2,26 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui">
 	<div>
 		<h:form>
-			<nav class="navbar navbar-default">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<a class="navbar-brand" href="#">Teams</a>
-					</div>
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" href="#">Player <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><h:commandLink action="/player/add?faces-redirect=true">
-										<h:outputText value="#{msg.playerAddLabel}" />
-									</h:commandLink></li>
-								<li><h:commandLink action="/player/showPlayers?faces-redirect=true">
-										<h:outputText value="#{msg.playerAllLabel}" />
-									</h:commandLink></li>
-							</ul></li>
-						<li class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" href="#">Team <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Page 1-1</a></li>
-								<li><a href="#">Page 1-2</a></li>
-								<li><a href="#">Page 1-3</a></li>
-							</ul></li>
-						<li class="dropdown"><a class="dropdown-toggle"
-							data-toggle="dropdown" href="#">Team/Player <span
-								class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Page 1-1</a></li>
-								<li><a href="#">Page 1-2</a></li>
-								<li><a href="#">Page 1-3</a></li>
-							</ul></li>
-					</ul>
-				</div>
-			</nav>
+			<b:navBar brand="Teams" brandHref="#">
+				<b:navbarLinks>
+					<b:navLink value="Home" href="#"></b:navLink>
+					<b:dropMenu value="Player">
+						<b:navLink value="#{msg.playerAddLabel}" href="#{request.contextPath}/player/add.jsf"></b:navLink>
+						<b:navLink value="#{msg.playerShowLabel}" href="#{request.contextPath}/player/showPlayers.jsf"></b:navLink>
+					</b:dropMenu>
+					<b:dropMenu value="Team">
+						<b:navLink value="#{msg.teamAddLabel}" href="#{request.contextPath}/team/addTeam.jsf"></b:navLink>
+						<b:navLink value="#{msg.teamShowLabel}" href="#{request.contextPath}/team/showTeams.jsf"></b:navLink>
+					</b:dropMenu>
+					<b:dropMenu value="Team/Player">
+						<b:navLink value="#{msg.playerAddLabel}" href="player/add.jsf"></b:navLink>
+					</b:dropMenu>
+				</b:navbarLinks>
+			</b:navBar>
 		</h:form>
 	</div>
 </ui:composition>

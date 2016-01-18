@@ -2,17 +2,18 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title><ui:insert name="windowTitle">#{msg.mainWindowTitle}</ui:insert></title>
-	<h:outputScript library="js" name="js/bootstrap.js" />
+	<script language="javascript">
+		function confirmDelete() {
+			return confirm('Are you sure you want to perform this action?');
+		}
+	</script>
 </h:head>
 <h:body>
-	<h:outputStylesheet library="css" name="bootstrap.css" target="body" />
-	<div class="heading">
-		<ui:insert name="heading">#{msg.mainHeading}</ui:insert>
-	</div>
 	<div class="menuAndContent">
 		<div class="menu">
 			<ui:insert name="menu">
