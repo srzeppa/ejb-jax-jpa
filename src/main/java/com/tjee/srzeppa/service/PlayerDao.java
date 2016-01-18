@@ -12,5 +12,6 @@ public interface PlayerDao {
 	void deletePlayer(Player player);
 	Player getPlayerById(int id);
 	void updatePlayer(Player player);
+	public List<Player> getAvaiablePlayers();
 
 }

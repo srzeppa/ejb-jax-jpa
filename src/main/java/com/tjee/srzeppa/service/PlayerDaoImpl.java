@@ -38,18 +38,13 @@ public class PlayerDaoImpl implements PlayerDao{
 	}
 
 	public void updatePlayer(Player player) {
-//		player = entityManager.find(Player.class, player.getId());
 		entityManager.merge(player);
 	}
-	
-	public void updatePlayerWith(Player player, Team team, int age, String firstname, String lastname) {
-		player = entityManager.find(Player.class, player.getId());
-		
-		player.setAge(age);
-		player.setFirstname(firstname);
-		player.setLastname(lastname);
-		
-		entityManager.merge(player);
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Player> getAvaiablePlayers() {
+		return entityManager.createNamedQuery("player.viable").getResultList();
 	}
 
 }

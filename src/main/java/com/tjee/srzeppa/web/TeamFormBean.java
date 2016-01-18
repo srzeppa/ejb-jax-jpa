@@ -75,4 +75,12 @@ public class TeamFormBean implements Serializable {
 		return "showTeams";
 	}
 
+	public int getPlayerId() {
+		return playerId;
+	}
+
+	public void setPlayerId(int playerId) {
+		this.playerId = playerId;
+	}
+
 }

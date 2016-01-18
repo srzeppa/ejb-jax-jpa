@@ -1,6 +1,7 @@
 package com.tjee.srzeppa.web;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.ListDataModel;
@@ -26,6 +27,8 @@ public class PlayerFormBean implements Serializable{
 	private PlayerDao playerDao;
 	@Inject
 	private TeamDao teamDao;
+	
+	private int playerId;
 
 	public Player getPlayer() {
 		return player;
@@ -65,6 +68,18 @@ public class PlayerFormBean implements Serializable{
 	public String showProperties() {
 		player = players.getRowData();
 		return "details";
+	}
+	
+	public List<Player> getAvaiablePlayers() {
+		return playerDao.getAvaiablePlayers();
+	}
+
+	public int getPlayerId() {
+		return playerId;
+	}
+
+	public void setPlayerId(int playerId) {
+		this.playerId = playerId;
 	}
 
 }

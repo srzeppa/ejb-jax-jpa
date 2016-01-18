@@ -8,20 +8,20 @@
 	xmlns:rich="http://richfaces.org/rich">
 
 	<ui:define name="content">
-		<h:form id="teamForm">
+		<h:form id="playerToTeamForm">
 			<h:panelGrid columns="2">
 
 				<h:outputText value=" Team" />
-				<h:selectOneMenu value="#{teamBean.team}">
+				<h:selectOneMenu value="#{teamBean.teamId}">
 					<f:selectItems value="#{teamBean.allTeams}" var="team"
 						itemValue="#{team.id}" itemLabel="#{team.name}" />
 				</h:selectOneMenu>
 
 
 				<h:outputText value=" Player " />
-				<h:selectOneMenu value="#{teamBean.teamId}">
-					<f:selectItems value="#{teamBean.allPlayers}" var="player"
-						itemValue="#{player.id}" itemLabel="#{player.firstname}" />
+				<h:selectOneMenu value="#{teamBean.playerId}">
+					<f:selectItems value="#{playerBean.avaiablePlayers}" var="player"
+						itemValue="#{player.id}" itemLabel="#{player.firstname} #{player.lastname}" />
 				</h:selectOneMenu>
 			</h:panelGrid>
 
