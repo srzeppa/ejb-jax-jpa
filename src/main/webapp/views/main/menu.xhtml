@@ -6,19 +6,18 @@
 	xmlns:b="http://bootsfaces.net/ui">
 	<div>
 		<h:form>
-			<b:navBar brand="Teams" brandHref="#">
+			<b:navBar brand="Teams">
 				<b:navbarLinks>
-					<b:navLink value="Home" href="#"></b:navLink>
 					<b:dropMenu value="Player">
 						<b:navLink value="#{msg.playerAddLabel}" href="#{request.contextPath}/player/add.jsf"></b:navLink>
-						<b:navLink value="#{msg.playerShowLabel}" href="#{request.contextPath}/player/showPlayers.jsf"></b:navLink>
+						<b:navLink value="#{msg.playerAllLabel}" href="#{request.contextPath}/player/showPlayers.jsf"></b:navLink>
 					</b:dropMenu>
 					<b:dropMenu value="Team">
 						<b:navLink value="#{msg.teamAddLabel}" href="#{request.contextPath}/team/addTeam.jsf"></b:navLink>
-						<b:navLink value="#{msg.teamShowLabel}" href="#{request.contextPath}/team/showTeams.jsf"></b:navLink>
+						<b:navLink value="#{msg.teamAllLabel}" href="#{request.contextPath}/team/showTeams.jsf"></b:navLink>
 					</b:dropMenu>
 					<b:dropMenu value="Team/Player">
-						<b:navLink value="#{msg.playerAddLabel}" href="player/add.jsf"></b:navLink>
+						<b:navLink value="#{msg.playerToTeamAddLabel}" href="#{request.contextPath}/team/addPlayerToTeam.jsf"></b:navLink>
 					</b:dropMenu>
 				</b:navbarLinks>
 			</b:navBar>

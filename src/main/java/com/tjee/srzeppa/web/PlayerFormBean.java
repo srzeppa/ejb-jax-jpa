@@ -21,7 +21,6 @@ public class PlayerFormBean implements Serializable{
 	
 	private Player player = new Player();
 	private ListDataModel<Player> players = new ListDataModel<Player>();
-	private Team ownedTeam;
 	
 	@Inject
 	private PlayerDao playerDao;
@@ -51,9 +50,16 @@ public class PlayerFormBean implements Serializable{
 		playerDao.deletePlayer(player);
 	}
 	
-	public void editPlayer(){
+	public String update(){
+//		player = players.getRowData();
+		playerDao.updatePlayer(player);
+		return "showPlayers";
+	}
+	
+	public String showEdit(){
 		player = players.getRowData();
 		playerDao.updatePlayer(player);
+		return "showEdit";
 	}
 	
 	public String showProperties() {
