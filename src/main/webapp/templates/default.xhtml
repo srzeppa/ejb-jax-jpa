@@ -5,11 +5,11 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title><ui:insert name="windowTitle">#{msg.mainWindowTitle}</ui:insert>
-	</title>
+	<title><ui:insert name="windowTitle">#{msg.mainWindowTitle}</ui:insert></title>
+	<h:outputScript library="js" name="js/bootstrap.js" />
 </h:head>
 <h:body>
-	<h:outputStylesheet library="css" name="default.css" target="body" />
+	<h:outputStylesheet library="css" name="bootstrap.css" target="body" />
 	<div class="heading">
 		<ui:insert name="heading">#{msg.mainHeading}</ui:insert>
 	</div>
