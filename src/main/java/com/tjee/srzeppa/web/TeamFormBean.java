@@ -1,5 +1,6 @@
 package com.tjee.srzeppa.web;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.io.Serializable;
 
@@ -20,16 +21,18 @@ public class TeamFormBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Team team = new Team();
+	private Player playerToShow = new Player();
 	private ListDataModel<Team> teams = new ListDataModel<Team>();
+	private ListDataModel<Player> players = new ListDataModel<Player>();
 
 	@Inject
 	private PlayerDao playerDao;
 	@Inject
 	private TeamDao teamDao;
-	
+
 	private int playerId;
 	private int teamId;
-	
+
 	public Team getTeam() {
 		return team;
 	}
@@ -52,9 +55,18 @@ public class TeamFormBean implements Serializable {
 		team = teams.getRowData();
 		teamDao.updateTeam(team);
 	}
-	
-	public List <Player> getAllPlayers(){
+
+	public List<Player> getAllPlayers() {
 		return playerDao.getAllPlayers();
+	}
+
+	public List<String> getAllPlayersNames() {
+		List <String> tmp = new ArrayList();
+		players.setWrappedData(teamDao.getTeamPlayers(team));
+		for(Player player : players){
+			tmp.add(player.getFirstname());
+		}
+		return tmp;
 	}
 
 	public int getTeamId() {
@@ -64,13 +76,13 @@ public class TeamFormBean implements Serializable {
 	public void setTeamId(int teamId) {
 		this.teamId = teamId;
 	}
-	
-	public String playerToTeam(){
+
+	public String playerToTeam() {
 		teamDao.addPlayerToTeam(teamId, playerId);
 		return null;
 	}
-	
-	public String addTeam(){
+
+	public String addTeam() {
 		teamDao.addTeam(team);
 		return "showTeams";
 	}
@@ -81,6 +93,11 @@ public class TeamFormBean implements Serializable {
 
 	public void setPlayerId(int playerId) {
 		this.playerId = playerId;
+	}
+
+	public String showProperties() {
+		team = teams.getRowData();
+		return "details";
 	}
 
 }

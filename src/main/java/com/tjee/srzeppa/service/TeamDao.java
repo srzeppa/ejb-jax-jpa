@@ -15,5 +15,6 @@ public interface TeamDao {
 	void addPlayerToTeamList(int teamId, List<Player> playerList);
 	List<Player> getPlayers(Team team);
 	void addPlayerToTeam(int teamId, int playerId);
+	List<Player> getTeamPlayers(Team team);
 
 }

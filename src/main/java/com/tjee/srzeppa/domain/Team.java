@@ -54,7 +54,7 @@ public class Team {
 		this.name = name;
 	}
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	public List<Player> getPlayers() {
 		return players;
 	}

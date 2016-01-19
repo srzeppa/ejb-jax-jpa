@@ -67,5 +67,13 @@ public class TeamDaoImpl implements TeamDao{
 		List<Player> players = new ArrayList<Player>(team.getPlayers());
 		return players;
 	}
+	
+	@Override
+	public List<Player> getTeamPlayers(Team team) {
+		team = entityManager.find(Team.class, team.getId());
+		// lazy loading here - try this code without this (shallow) copying
+		List<Player> players= new ArrayList<Player>(team.getPlayers());
+		return players;
+	}
 
 }
