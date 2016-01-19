@@ -99,5 +99,16 @@ public class TeamFormBean implements Serializable {
 		team = teams.getRowData();
 		return "details";
 	}
+	
+	public String update(){
+		teamDao.updateTeam(team);
+		return "showTeams";
+	}
+	
+	public String showEdit(){
+		team = teams.getRowData();
+		teamDao.updateTeam(team);
+		return "showEdit";
+	}
 
 }

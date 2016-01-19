@@ -41,7 +41,7 @@ public class TeamDaoImpl implements TeamDao{
 
 	@Override
 	public void updateTeam(Team team) {
-		// TODO Auto-generated method stub
+		entityManager.merge(team);
 		
 	}
 
