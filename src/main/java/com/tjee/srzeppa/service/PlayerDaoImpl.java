@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.tjee.srzeppa.domain.Player;
-import com.tjee.srzeppa.domain.Team;
 
 @Stateless
 public class PlayerDaoImpl implements PlayerDao{
