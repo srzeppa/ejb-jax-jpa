@@ -66,7 +66,7 @@
 		            <label for="age" class="col-sm-2 control-label">Age: </label>
 
 		            <div class="col-sm-10">
-		                <input type="text" name="phoneNumber" id="age" class="form-control" placeholder="0" required>
+		                <input type="text" name="age" id="age" class="form-control" placeholder="0" required>
 		            </div>
 		        </div>
 		        <div class="form-group text-center">
