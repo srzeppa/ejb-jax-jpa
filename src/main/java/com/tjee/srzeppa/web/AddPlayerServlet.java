@@ -13,7 +13,7 @@ import com.tjee.srzeppa.service.PlayerDao;
 
 
 @WebServlet(urlPatterns = "/addPlayer")
-public class addPlayerServlet extends HttpServlet{
+public class AddPlayerServlet extends HttpServlet{
     @EJB
     private PlayerDao playerDao;
 

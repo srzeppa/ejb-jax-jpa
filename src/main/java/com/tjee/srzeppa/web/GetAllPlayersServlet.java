@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.tjee.srzeppa.service.PlayerDao;
 
 
-@WebServlet(urlPatterns = "/Players")
-public class getAllPlayersServlet extends HttpServlet{
+@WebServlet(urlPatterns = "/getAllPlayers")
+public class GetAllPlayersServlet extends HttpServlet{
 
 	@EJB
     private PlayerDao playerDao;

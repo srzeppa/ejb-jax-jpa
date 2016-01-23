@@ -7,7 +7,7 @@
 <head>
 <link href="${pageContext.request.contextPath}/webjars/bootstrap/3.2.0/css/bootstrap.min.css"  rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" />
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"/>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" />
 
 	<script>
 		$(document).ready(function()
@@ -27,7 +27,7 @@
 								age: document.getElementById('age').value
 								
 							},
-						    success: function() { document.location.replace("${pageContext.request.contextPath}/Player"); },
+						    success: function() { document.location.replace("${pageContext.request.contextPath}/player/showPlayers.jsp"); },
  						    error: function() { alert("Nieprawidłowo wprowadzono dane!"); }
 						}		
 						);
@@ -70,8 +70,8 @@
 		            </div>
 		        </div>
 		        <div class="form-group text-center">
-		                <button id="add" type="submit" class="btn btn-success">Dodaj</button>
-				<a href="${pageContext.request.contextPath}/Player" class="btn btn-default" role="button">return</a>
+		                <button id="add" type="submit" class="btn btn-success">Add</button>
+				<a href="${pageContext.request.contextPath}/player/showPlayers.jsp" class="btn btn-default" role="button">Back</a>
 		 	    </div>
 		        </div>
 		        

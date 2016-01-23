@@ -1,5 +1,6 @@
 package com.tjee.srzeppa.jaxrs;
 
+import java.net.URISyntaxException;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -12,6 +13,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.tjee.srzeppa.domain.*;
 import com.tjee.srzeppa.service.*;
@@ -35,7 +37,7 @@ public class PlayerRest {
 	@POST
 	@Path("/add")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Player add(
+	public Response add(
 		@FormParam("firstname") String firstname,
 		@FormParam("lastname") String lastname,
 		@FormParam("age") int age
@@ -48,7 +50,15 @@ public class PlayerRest {
 			
 			playerDao.addPlayer(player);
 			
-			return player;
+			java.net.URI location;
+			try {
+				location = new java.net.URI("../player/showPlayers.jsp");
+				return Response.temporaryRedirect(location).build();
+			} catch (URISyntaxException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		    return null;
 	}
 	
 	
