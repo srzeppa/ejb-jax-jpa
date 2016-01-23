@@ -49,7 +49,7 @@
 					<td>First name</td>
 					<td>Last name</td>
 					<td>Age</td>
-					<td></td>
+					<td>Action</td>
 				</tr>
 				<tr>
 					<td id="pole1"></td>
