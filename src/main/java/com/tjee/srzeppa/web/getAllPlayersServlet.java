@@ -20,7 +20,7 @@ public class getAllPlayersServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("views/Player/showPlayers.jsp").forward(request, response);
+        request.getRequestDispatcher("player/showPlayers.jsp").forward(request, response);
     }
 	
 }
