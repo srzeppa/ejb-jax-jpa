@@ -50,6 +50,7 @@
 													+ "</td>" + "<td>"
 													+ data[i].age + "</td>"
 													+ "<td>" +
+														"<a href='${pageContext.request.contextPath}/updatePlayer/"+data[i].id+"' class='btn btn-xs btn-primary' role='button'>Edit</a> "+
 														"<button id="+data[i].id+" onClick='deletePlayer("+data[i].id+")' type='submit' class='btn btn-xs btn-danger'>Delete</button>"
 													+ "</td>"
 													+ "</tr>"

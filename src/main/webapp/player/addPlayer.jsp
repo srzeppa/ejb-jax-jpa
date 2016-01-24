@@ -50,7 +50,7 @@
 		            <label for="firstname" class="col-sm-2 control-label">First name: </label>
 
 		            <div class="col-sm-10">
-		                <input type="text" name="firstname" id="firstname" class="form-control" data-minlength="2" required>
+		                <input type="text" name="firstname" id="firstname" class="form-control" data-minlength="2" value="${editedPlayer.getFirstname()}" required >
 		            </div>
 		        </div>
 

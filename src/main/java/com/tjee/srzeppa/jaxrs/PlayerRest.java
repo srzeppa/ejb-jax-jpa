@@ -9,6 +9,7 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -79,6 +80,27 @@ public class PlayerRest {
 	){
 		return playerDao.getPlayerById(id);
 	}
+	
+	@PUT
+    @Path("/edit/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Player edit(
+            @PathParam("id") int id,
+            @FormParam("firstname") String firstname,
+            @FormParam("lastname") String lastname,
+            @FormParam("age") Integer age)
+    {
+	 	Player player = new Player();
+	
+	 	player = playerDao.getPlayerById(id);
+	 	player.setAge(age);
+	 	player.setFirstname(firstname);
+	 	player.setLastname(lastname);
+	 	
+		playerDao.updatePlayer(player);
+		
+	    return player;
+    }
 	
 	
 	

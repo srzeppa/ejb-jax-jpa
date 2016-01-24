@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.tjee.srzeppa.service.PlayerDao;
 
-@WebServlet(urlPatterns = "/deletePlayer/*")
-public class DeletePlayerServlet extends HttpServlet{
+@WebServlet(urlPatterns = "/updatePlayer/*")
+public class UpdatePlayerServlet extends HttpServlet{
 
 	@EJB
 	private PlayerDao playerDao;
@@ -20,8 +20,9 @@ public class DeletePlayerServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String link = request.getPathInfo();
-		playerDao.deletePlayer(
+		request.setAttribute("editedPlayer",
 				playerDao.getPlayerById(Integer.parseInt(link.substring(link.lastIndexOf("/") + 1, link.length()))));
-
+		request.getRequestDispatcher("/player/edit.jsp").forward(request, response);
 	}
+
 }
