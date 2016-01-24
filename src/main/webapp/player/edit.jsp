@@ -44,7 +44,7 @@
 </head>
 
 <body>
-
+<jsp:include page="../elements/menu.jsp" />
 	<div class="container">
 		<div class="row">
 			<h1 class="text-center">Edit player</h1>

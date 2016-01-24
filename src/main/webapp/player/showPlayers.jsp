@@ -84,6 +84,7 @@
 </head>
 
 <body>
+<jsp:include page="../elements/menu.jsp" />
 
 	<div class="container">
 		<div class="row">
