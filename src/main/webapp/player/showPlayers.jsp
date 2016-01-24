@@ -49,6 +49,9 @@
 													+ "<td>" + data[i].lastname
 													+ "</td>" + "<td>"
 													+ data[i].age + "</td>"
+													+ "<td>" +
+														"<button id="+data[i].id+" onClick='deletePlayer("+data[i].id+")' type='submit' class='btn btn-xs btn-danger'>Delete</button>"
+													+ "</td>"
 													+ "</tr>"
 											$(tblRow).appendTo(
 													"#userdata tbody");
@@ -57,6 +60,19 @@
 								});
 					});
 </script>
+	<script>
+		function deletePlayer(id)
+				{	
+					$.ajax
+					(
+						{
+							url: '${pageContext.request.contextPath}/rest/playerr/delete/'+id,
+							type: 'DELETE',
+							success: function() { document.location.reload(true);}
+						}	
+					);
+				}
+	</script>
 
 <link rel='stylesheet'
 	href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
