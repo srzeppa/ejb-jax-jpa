@@ -1,24 +1,22 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="pl">
 <head>
-<link href="${pageContext.request.contextPath}/webjars/bootstrap/3.2.0/css/bootstrap.min.css"  rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" />
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" />
-
+<script src="${pageContext.request.contextPath}/webjars/jquery/2.1.4/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/webjars/jquery/2.1.4/jquery.js"></script>
 	<script>
-		$(document).ready(function()
-			{
+		$(document).ready(function(){
 				$( "#add" ).on('click', function(e)
-					{	
+					{
 						e.preventDefault();
 						$.ajax
 						(
 						{
 						    url: '${pageContext.request.contextPath}/rest/playerr/add',
+						    /* url: '${pageContext.request.contextPath}/player/showPlayers.jsp', */
+						    context: document.body,
 						    type: 'POST',
 						    data:
 							{
@@ -27,15 +25,20 @@
 								age: document.getElementById('age').value
 								
 							},
-						    success: function() { document.location.replace("${pageContext.request.contextPath}/player/showPlayers.jsp"); },
- 						    error: function() { alert("Nieprawidłowo wprowadzono dane!"); }
+							success: function(){document.location.replace("${pageContext.request.contextPath}/player/showPlayers.jsp");},
+							error: function(){alert("error");}
 						}		
-						);
+						).done(function() {
+							  $( this ).addClass( "done" );
+						});
 					}
 				);
 			}
 		);
 	</script>
+	<link href="${pageContext.request.contextPath}/webjars/bootstrap/3.2.0/css/bootstrap.min.css"  rel="stylesheet">
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" /></script> -->
 </head>
 
 <body>

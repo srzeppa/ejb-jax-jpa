@@ -38,7 +38,7 @@ public class PlayerRest {
 	@POST
 	@Path("/add")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response add(
+	public Player add(
 		@FormParam("firstname") String firstname,
 		@FormParam("lastname") String lastname,
 		@FormParam("age") int age
@@ -51,15 +51,15 @@ public class PlayerRest {
 			
 			playerDao.addPlayer(player);
 			
-			java.net.URI location;
+			/*java.net.URI location;
 			try {
 				location = new java.net.URI("../player/showPlayers.jsp");
 				return Response.temporaryRedirect(location).build();
 			} catch (URISyntaxException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-		    return null;
+			}*/
+		    return player;
 	}
 	
 	
